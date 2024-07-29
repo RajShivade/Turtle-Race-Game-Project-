@@ -1,0 +1,93 @@
+Turtle Race Code Documentation :- 
+
+This code sets up a simple turtle race game using the turtle module in Python. The user is prompted to bet on the color of the turtle they think will win. The turtles then race across the screen, and the result is printed based on the user's bet.
+
+Import Statements:
+
+- from turtle import Turtle, Screen
+- import random
+
+~Turtle and Screen are imported from the turtle module.
+
+~random is imported to generate random distances for the turtles to move.
+
+Variables and Screen Setup:
+
+is_race_on = False
+screen = Screen()
+screen.setup(width=500, height=400)
+user_bet = screen.textinput(title="Make your bet", prompt="Which turtle will win the race? Enter a color: ")
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+y_positions = [-70, -40, -10, 20, 50, 80]
+all_turtles = []
+
+- is_race_on: A flag to control the race loop.
+
+-screen: An instance of the Screen class, representing the screen where the race takes place.
+
+-screen.setup(width=500, height=400): Sets up the screen with a width of 500 pixels and height of 400 pixels.
+
+-user_bet: Captures the user's bet through a text input dialog.
+
+-colors: A list of colors for the turtles.
+
+-y_positions: A list of y-coordinates for positioning the turtles at the start.
+
+-all_turtles: An empty list to store the turtle objects.
+
+Creating Turtles:
+
+for turtle_index in range(0, 6):
+    new_turtle = Turtle(shape="turtle")
+    new_turtle.penup()
+    new_turtle.color(colors[turtle_index])
+    new_turtle.goto(x=-230, y=y_positions[turtle_index])
+    all_turtles.append(new_turtle)
+
+-A loop runs from 0 to 5 to create six turtles.
+
+-new_turtle = Turtle(shape="turtle"): Creates a new turtle with the shape of a turtle.
+
+-new_turtle.penup(): Lifts the pen so the turtle doesn't draw lines as it moves.
+
+-new_turtle.color(colors[turtle_index]): Sets the color of the turtle from the colors list.
+
+-new_turtle.goto(x=-230, y=y_positions[turtle_index]): Positions the turtle at the starting line with the specified y-coordinate.
+
+-all_turtles.append(new_turtle): Adds the new turtle to the all_turtles list.
+
+Starting the Race:
+
+if user_bet:
+    is_race_on = True
+
+If the user has made a bet, the race starts by setting is_race_on to True.
+
+Race Loop:
+
+while is_race_on:
+    for turtle in all_turtles:
+        if turtle.xcor() > 230:
+            is_race_on = False
+            winning_color = turtle.pencolor()
+            if winning_color == user_bet:
+                print(f"You've won! The {winning_color} turtle is the winner!")
+            else:
+                print(f"You've lost! The {winning_color} turtle is the winner!")
+
+        rand_distance = random.randint(0, 10)
+        turtle.forward(rand_distance)
+
+~The race continues while is_race_on is True.
+~Each turtle in all_turtles moves forward by a random distance (between 0 and 10).
+~turtle.xcor() > 230: Checks if a turtle has crossed the finish line (x-coordinate greater than 230).
+~If a turtle wins, is_race_on is set to False, and the winning color is determined.
+~If the winning turtle's color matches the user's bet, a winning message is printed; otherwise, a losing message is printed.
+
+End of the Program:
+
+screen.exitonclick()
+
+Summary:
+
+This script allows the user to bet on which turtle will win a race. Turtles move randomly towards the finish line, and the script checks the position of each turtle to determine the winner and inform the user if they won or lost their bet. The program utilizes the turtle module for graphical representation and the random module for movement randomness.
