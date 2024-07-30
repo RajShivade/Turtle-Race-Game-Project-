@@ -141,19 +141,9 @@ screen.exitonclick()
 This script allows the user to bet on which turtle will win a race. Turtles move randomly towards the finish line, and the script checks the position of each turtle to determine the winner and inform the user if they won or lost their bet. The program utilizes the turtle module for graphical representation and the random module for movement randomness.
 
 # Output1:
-<h1 align="center">
-   <a href="https://google.com">
-    <img src="./output1.png">
-   
-    
-</h1>
+![output1](https://github.com/user-attachments/assets/45c66743-7757-4ae1-b488-59393d467186)
 
 
 
 # Output2: 
-<h1 align="center">
-   <a href="https://google.com">
-    <img src="./output2.png">
-   
-    
-</h1>
+![output2](https://github.com/user-attachments/assets/b7a7a7d5-7aa5-4fa5-8ded-52f57b8ec919)
